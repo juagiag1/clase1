@@ -13,7 +13,7 @@
 <div class="container">
   <div class="col-md-6 col-md-offset-3">
     <h2>Formulario de contacto</h2>
-    <form action="" method="">
+    <form action="./envia_email.php" method="POST">
       <div class="form-group">
         <label for="name">Nombre*:</label>
         <input type="text" class="form-control" placeholder="Introduce tu nombre" name="name">
@@ -31,7 +31,7 @@
         <textarea type="text" class="form-control" placeholder="Introduce tu consulta" name="message" rows="5" ></textarea>
       </div>
       <div class="checkbox">
-        <label><input type="checkbox" name="conditions"> He leído y acepto las condiciones</label>
+        <label><input type="checkbox" name="conditions" value="1"> He leído y acepto las condiciones</label>
       </div>
       <button type="submit" class="btn btn-default">Enviar</button>
     </form>
