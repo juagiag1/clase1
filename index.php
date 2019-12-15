@@ -13,6 +13,30 @@
 <div class="container">
   <div class="col-md-6 col-md-offset-3">
     <h2>Formulario de contacto</h2>
+    <?php
+    if (isset($_GET['envia'])) {
+      switch ($_GET['envia']) {
+        case 'error_cond':
+          echo '<div class="alert alert-warning" role="alert">
+                  Por favor, lee y acepta las condiciones.
+              </div>';
+          break;
+        case 'error':
+          echo '<div class="alert alert-danger" role="alert">
+                  Debes rellenar todos los campos marcados con asterísco.
+              </div>';
+          break;
+        case 'ok':
+          echo '<div class="alert alert-success" role="alert">
+                  Formulario enviado con éxito!
+              </div>';
+          break;
+        
+        default:
+          break;
+      }
+    }
+    ?>
     <form action="./envia_email.php" method="POST">
       <div class="form-group">
         <label for="name">Nombre*:</label>
