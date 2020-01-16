@@ -13,7 +13,38 @@
 <div class="container">
   <div class="col-md-6 col-md-offset-3">
     <h2>Formulario de contacto</h2>
-    <form action="" method="">
+    <?php  
+    if (isset($_GET['envia'])) {
+      switch ($_GET['envia']) {
+        case 'ok':
+          echo ' <div class="alert alert-success alert-dismissible">
+                <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
+                <strong>Success!</strong> Consulta enviada! Muchas gracias.
+              </div>';
+          break;
+
+        case 'error':
+          echo ' <div class="alert alert-warning alert-dismissible">
+                <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
+                Rellena todos los campos.
+              </div>';
+          break;
+
+        case 'error_cond':
+          echo ' <div class="alert alert-danger alert-dismissible">
+                <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
+                Acepta las condiciones y el aviso legal
+              </div>';
+          break;
+        
+        default:
+          
+          break;
+      }
+    }
+    ?>
+
+    <form action="./envia_email.php" method="post">
       <div class="form-group">
         <label for="name">Nombre*:</label>
         <input type="text" class="form-control" placeholder="Introduce tu nombre" name="name">
